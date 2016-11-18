@@ -9,6 +9,14 @@ int main(){
   printf("What would you like to do?: ");
   fgets(s,sizeof(s),stdin);
 
+  //Get rid of newLine char
+  int j = 0;
+  for(; j<strlen(s);j++){
+    if( strcmp(&s[j],"\n") == 0){
+      s[j] = 0;
+      j--;
+    }
+  }
   
 
   char * cmd[100];
@@ -21,16 +29,13 @@ int main(){
     i++;
   }
 
-  //Get rid of newLine char
   
+  //cmd[i-1] = strncpy( cmd[i-1], cmd[i-1], strlen(cmd[i-1]) - 1 );
 
   
-  cmd[i-1] = strcpy( cmd[i-1], )
-  
-  
   cmd[i] = 0;
-  printf("cmd[0]: %s \n", cmd[0]);
-  printf("cmd[1]: %s \n", cmd[1]);
+  //printf("cmd[0]: %s \n", cmd[0]);
+  //printf("cmd[1]: %s \n", cmd[1]);
   
   execvp(cmd[0], cmd);
 
