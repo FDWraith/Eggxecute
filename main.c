@@ -3,7 +3,6 @@
 #include <string.h>
 #include <unistd.h>
 
-
 int main(){
   char s[100];
   printf("What would you like to do?: ");
@@ -17,7 +16,6 @@ int main(){
       j--;
     }
   }
-  
 
   char * cmd[100];
   char * currentString = s;
@@ -25,20 +23,12 @@ int main(){
   
   while( currentString ){
     cmd[i] = strsep(&currentString," ");
-    printf("Added %s\n", cmd[i]);
+    //printf("Added %s\n", cmd[i]);
     i++;
   }
 
-  
-  //cmd[i-1] = strncpy( cmd[i-1], cmd[i-1], strlen(cmd[i-1]) - 1 );
-
-  
   cmd[i] = 0;
-  //printf("cmd[0]: %s \n", cmd[0]);
-  //printf("cmd[1]: %s \n", cmd[1]);
-  
   execvp(cmd[0], cmd);
-
   
   return 0;
 }
